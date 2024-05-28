@@ -1,0 +1,12 @@
+{
+  "name": "js-debug",
+  "version": "1.0.0",
+  "description": "<h1>   <img alt=\"vscode-js-debug\" src=\"resources/readme/logo-with-text.png\" width=\"500\"> </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
