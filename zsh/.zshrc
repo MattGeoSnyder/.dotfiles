@@ -9,22 +9,26 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:/usr/bin:$PATH
 export PATH=$HOME/linuxbrew/.linuxbrew/bin:$PATH
 
-#Go configuration
+#Go path
 export GOPATH=$HOME/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
+#Rust path
 export PATH=$HOME/.cargo/bin:$PATH
 
+#Docker path
 export PATH=$HOME/.docker/run:$PATH
 export PATH=/usr/bin/docker:$PATH
 export PATH="/mnt/c/Program Files/Docker/Docker/resources/bin/docker":$PATH
 
+#nvm path
 export PATH=$HOME/.nvm/versions/node/v20.9.0/bin/npm:$PATH
 export PATH=$HOME/.nvm:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+#fzf path
 export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
 export FZF_DEFAULT_COMMAND='fzf'
 DISABLE_FZF_AUTO_COMPLETION="true"
