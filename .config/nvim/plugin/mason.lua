@@ -1,7 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "rust_analyzer", "eslint", 
-	"basedpyright"},
+	ensure_installed = { "lua_ls", "rust_analyzer", "eslint", "pyright" },
 })
 require("mason-nvim-dap").setup({
 	automatic_installation = true,

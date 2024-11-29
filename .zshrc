@@ -5,7 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
+# Supress powerlevel9k instant prompt
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 alias ls='ls --color'
 
@@ -32,8 +33,7 @@ zstyle :compinstall filename '/home/mattgeosnyder/.zshrc'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit; compinit
 # End of lines added by compinstall
 
 ### Added by Zinit's installer
@@ -50,6 +50,7 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light marlonrichert/zsh-autocomplete
 zinit light fdellwing/zsh-bat 

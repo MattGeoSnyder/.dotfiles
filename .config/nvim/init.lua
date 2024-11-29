@@ -163,5 +163,8 @@ require("lazy").setup({
 				desc = "Quickfix List (Trouble)",
 			},
 		},
+	},
+	{
+		"mhartington/formatter.nvim",
 	}
 })
