@@ -70,8 +70,8 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 	},
 	{
-		"MunifTanjim/prettier.nvim",
-		dependencies = { "jose-elias-alvarez/null-ls.nvim" },
+		"jose-elias-alvarez/null-ls.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"lewis6991/gitsigns.nvim",
