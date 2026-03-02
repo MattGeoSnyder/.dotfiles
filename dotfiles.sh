@@ -1,44 +1,41 @@
 #!/bin/bash
 
+#!/usr/bin/env bash
+if [[ "$EUID" -ne 0 ]]; then
+  echo "This script must be run with sudo or as root." >&2
+  exit 1
+fi
+
 #Update package manager
-apt update 
+apt update
 apt-get -y install build-essential
 
 #Install zsh
-apt install zsh
+apt install -y zsh
 
 #Make default shell
 chsh -s $(which zsh)
 
-#Install tmux
-apt install tmux
+#symlink zsh env
+ln -s "$HOME"/.config/zsh/.zshenv "$HOME"/.zshenv
 
-#Install additional utilities
-apt install ripgrep
-apt install xclip 
-apt install dos2unix
+#Install tmux
+apt install -y tmux
 
 #Install nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-echo -e "export PATH="$PATH:/opt/nvim-linux64/bin"\n$(cat .zshrc)" > .zshrc 
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-arm64.appimage
+chmod u+x nvim-linux-arm64.appimage
+mkdir -p /opt/nvim
+mv nvim-linux-arm64.appimage /opt/nvim/nvim
 
-#Download Dotfiles
-git clone https://github.com/MattGeoSnyder/.dotfiles.git ~/.dotfiles
+#Install additional utilities
+apt install -y ripgrep
+apt install -y xclip
+apt install -y dos2unix
+apt install -y fzf
+apt install -y bat
 
-#symlink things to config paths
-#link nvim
-ln -s ./.config/nvim "$HOME"/.config
-ln -s ./.config/tmux "$HOME"/.config
-ln -s ./.config/zsh "$HOME"/.config
-ln -s ./.fonts "$HOME"/.fonts
-
-#Install node
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-source ~/.zshrc
-nvm install node
-
-#aliases
-alias tmux -f "$HOME"/.conf/tmux/tmux.conf;
+#Copy config files
+cp -r ./.config/* "$HOME"/.config/
+cp ./.fonts/* "$HOME"/.fonts/
 

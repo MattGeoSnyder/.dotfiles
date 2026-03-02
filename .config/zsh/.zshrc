@@ -13,7 +13,7 @@ if command -v  fdfind >/dev/null; then
 	alias fd='fdfind'
 fi
 
-export PATH="$PATH:/home/mattgeosnyder/.local/bin"
+export PATH="$PATH:/home/mattgeosnyder/.local/bin:/opt/nvim/"
 
 #Keybindings for vicmd and emacs like insert mode
 bindkey -v 
@@ -104,3 +104,10 @@ zle -N accept-line-strip-semicolon
 bindkey -M vicmd '^M' accept-line-strip-semicolon
 
 bindkey '^M' accept-line-strip-semicolon
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
