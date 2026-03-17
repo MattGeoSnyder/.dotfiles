@@ -27,7 +27,7 @@ bindkey -M viins '^N' down-line-or-history
 
 bindkey -M viins -r '^R'
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 
 # Lines configured by zsh-newuser-install
