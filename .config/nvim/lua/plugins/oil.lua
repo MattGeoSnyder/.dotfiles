@@ -1,4 +1,4 @@
-return  {
+return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
@@ -9,6 +9,6 @@ return  {
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
   keys = {
-	  { "<leader>pv", "<cmd>Oil<cr>", desc = "Project view" },
-}
+    { "<leader>pv", "<cmd>Oil<cr>", desc = "Project view" },
+  }
 }
