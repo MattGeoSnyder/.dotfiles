@@ -1,3 +1,5 @@
 zsh/.oh-my-zsh/.git
 .config/github-copilot/apps.json
 .config/tmux/plugins
+.config/zsh/.zcompdump
+.config/nvim/lazy-lock.json
