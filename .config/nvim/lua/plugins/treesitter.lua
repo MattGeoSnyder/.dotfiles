@@ -1,12 +1,22 @@
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     lcode_actionazy = false,
-    build = ':TSUpdate',
+    build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter").install({ "lua", "vim", "vimdoc", "javascript", "typescript", "html",
-        "css", "c", "python" })
-    end
+      require("nvim-treesitter").install({
+        "lua",
+        "vim",
+        "vimdoc",
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "c",
+        "python",
+        "bash",
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
@@ -24,30 +34,26 @@ return {
     end,
     config = function()
       -- put your config here
-      require("nvim-treesitter-textobjects").setup {
+      require("nvim-treesitter-textobjects").setup({
         select = {
           lookahead = true,
-          ['@parameter.outer'] = 'v',
-          ['@parameter.outer'] = 'V',
+          ["@parameter.outer"] = "v",
+          ["@parameter.outer"] = "V",
         },
         include_surrounding_whitespace = false,
-      }
+      })
       vim.keymap.set({ "x", "o" }, "af", function()
-        require("nvim-treesitter-textobjects.select").select_textobject("@function.outer",
-          "textobjects")
+        require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
       end)
       vim.keymap.set({ "x", "o" }, "if", function()
-        require("nvim-treesitter-textobjects.select").select_textobject("@function.inner",
-          "textobjects")
+        require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
       end)
       vim.keymap.set({ "x", "o" }, "ac", function()
-        require("nvim-treesitter-textobjects.select").select_textobject("@class.outer",
-          "textobjects")
+        require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
       end)
       vim.keymap.set({ "x", "o" }, "ic", function()
-        require("nvim-treesitter-textobjects.select").select_textobject("@class.inner",
-          "textobjects")
+        require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
       end)
     end,
-  }
+  },
 }
